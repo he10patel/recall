@@ -52,11 +52,13 @@ var contactPage = 'contactPage',
     pinPage = 'pinPage',
     contactImg = 'url(img/contacts.png)',
     detailImg = 'url(img/detail.png)',
-    pinImg = 'url(img/pin.png)';
+    pinImg = 'url(img/pin.png)',
+    settingsPage = 'settingsPage',
+    settingImg = 'url(img/settings.png)';
 
 var prevPage;
 
-function swapElems(elemToHide, elemToShow, img){
+function swapElems(elemToHide, elemToShow, img) {
     document.body.style.backgroundImage = img;
     document.body.style.backgroundSize = 'cover';
     document.getElementById(elemToHide).style.transition = 'background-image 1s ease-in-out';
@@ -65,30 +67,36 @@ function swapElems(elemToHide, elemToShow, img){
     document.getElementById(elemToShow).style.visibility = 'visible';
 }
 
-function detailClick(){
+function detailClick() {
     swapElems(contactPage, detailPage, detailImg);
 }
 
-function backClickFromHome(){
+function backClickFromHome() {
     swapElems(detailPage, contactPage, contactImg);
 }
 
-function toSettings(currentPage){
+function toSettings(currentPage) {
     if (currentPage === contactPage) {
         prevPage = 0;
-    } else{
+    } else {
         prevPage = 1;
     }
-    swapElems(currentPage, pinPage, pinImg);
+    swapElems(currentPage, settingsPage, settingImg);
 }
 
-function backFromSettings(){
-    if(prevPage == 0){
-        swapElems(pinPage, contactPage, contactImg);
-    } else{
-        swapElems(pinPage, detailPage, detailImg);
+function backFromSettings() {
+    if(prevPage == 0) {
+        swapElems(settingsPage, contactPage, contactImg);
+    } else {
+        swapElems(settingsPage, detailPage, detailImg);
     }
 }
+
+function dialNumber() {
+    window.location.replace('tel:9723334563');
+}
+
+
 
 
 
