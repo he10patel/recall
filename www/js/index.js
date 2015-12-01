@@ -92,9 +92,10 @@ function backFromSettings() {
     }
 }
 
-function dialNumber() {
-    window.location.replace('tel:9723334563');
-}
+ function call(){
+                window.open("tel:+9723334563", "_system"); // or if _system doesnt work
+                window.open("tel:+9723334563", "_blank");
+            }
 
 
 
